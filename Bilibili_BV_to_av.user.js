@@ -7,7 +7,7 @@
 // @description:es       ???
 // @namespace            https://github.com/net2cn
 // @license              MIT License
-// @version              0.0.1
+// @version              0.0.2
 // @include              /^https?:\/\/www\.bilibili\.com\/video\/[BbVv]+/
 // @mainpage             https://github.com/net2cn/Bilibili_BV_to_av
 // @grant                none
@@ -16,7 +16,7 @@
 function convert(){
     if(window.aid!=undefined) {
         // Use regex to match BV id and replace it with the av id. bv is not case sensitive
-        let av_url = window.location.href.replace(/\/(BV(.*)(?=\/)|\/BV(.*)(?=$))/i, "/av"+window.aid)
+        let av_url = window.location.href.replace(/\/BV(.*)(?=\/)|\/BV(.*)(?=\?)|\/BV(.*)(?=$)/i, "/av"+window.aid)
         history.replaceState(null, null, av_url)
     }else {
         console.log("Unable to find aid for replacement.")
